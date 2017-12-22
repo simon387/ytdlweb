@@ -1,4 +1,4 @@
-package it.simonecelia.ytdlweb;
+package ytdlweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
