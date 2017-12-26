@@ -6,22 +6,7 @@
     </loaded-modules>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0d8428-43cc-4552-9206-5df5a15187b0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/model/Video.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/model/YoutubeDLcmd.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/model/YoutubeRequestType.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/utils/ValidationValue.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/ytdlweb.iml" afterPath="$PROJECT_DIR$/.idea/ytdlweb.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ytdlweb/model/Downloadable.java" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/model/Downloadable.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ytdlweb/model/FileToDownload.java" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/model/FileToDownload.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ytdlweb/model/Mp3.java" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/model/Mp3.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ytdlweb/rest/YtdlwebRestController.java" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/rest/YtdlwebRestController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ytdlweb/service/IYtdlwebService.java" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/service/IYtdlwebService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ytdlweb/service/impl/YytdlwebService.java" afterPath="$PROJECT_DIR$/src/main/java/ytdlweb/service/impl/YytdlwebService.java" />
-    </list>
+    <list default="true" id="cf0d8428-43cc-4552-9206-5df5a15187b0" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/rest/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
