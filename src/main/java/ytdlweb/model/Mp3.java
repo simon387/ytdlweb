@@ -2,20 +2,16 @@ package ytdlweb.model;
 
 public class Mp3 extends FileToDownload implements Downloadable {
 
-	public static final String CONTENT_TYPE = "audio/mpeg";
+	private static final String CONTENT_TYPE = "audio/mpeg";
+	private static final String EXTENSION = ".mp3";
 
-	public Mp3 (String fileName, byte[] contents) {
-		this.fileName = fileName;
-		this.contents = contents;
+	public Mp3 (String fileName) {
+		this.fileName = fileName + EXTENSION;
 	}
 
 	@Override
-	public String getFileName() {
-		return fileName;
+	public String getContentType() {
+		return CONTENT_TYPE;
 	}
 
-	@Override
-	public byte[] getContents() {
-		return contents;
-	}
 }
