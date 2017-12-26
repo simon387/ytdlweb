@@ -1,8 +1,9 @@
 package ytdlweb.service;
 
-import ytdlweb.model.Mp3;
+import ytdlweb.model.Downloadable;
+import ytdlweb.model.YoutubeRequestType;
 
 public interface IYtdlwebService {
 
-	Mp3 downloadMp3(String url);
+	Downloadable download(YoutubeRequestType youtubeRequestType);
 }
