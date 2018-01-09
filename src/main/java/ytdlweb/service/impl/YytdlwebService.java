@@ -1,5 +1,7 @@
 package ytdlweb.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
 import ytdlweb.model.*;
@@ -13,6 +15,8 @@ import java.io.InputStreamReader;
 @Service
 public class YytdlwebService implements IYtdlwebService {
 
+	private final Logger log = LoggerFactory.getLogger(YytdlwebService.class);
+
 	@Override
 	public Downloadable download(YoutubeRequestType youtubeRequestType) {
 		Downloadable downloadable;
@@ -20,15 +24,16 @@ public class YytdlwebService implements IYtdlwebService {
 		String type = youtubeRequestType.getType();
 		boolean isMp3 = type.equals(FileToDownload.TYPE.mp3.name());
 
-		String command = "youtube-dl --restrict-filenames --get-filename -o /tmp/%(title)s-%(id)s " + url;
+		YoutubeDLcmd ytdlcmd = new YoutubeDLcmd(url);
+		String command = ytdlcmd.getFileNameCmd();
 		String fileName = executeCommand(command);
 
 		if (isMp3) {
 			downloadable = new Mp3(fileName);
-			command = "youtube-dl --ignore-errors -x --audio-format mp3 -o " + downloadable.getFileName() + " " + url;
+			command = ytdlcmd.getMp3Cmd(downloadable.getFileName());
 		} else {
 			downloadable = new Video(fileName);
-			command = "youtube-dl --ignore-errors --recode-video mp4 -o " + downloadable.getFileName() + " " + url;
+			command = ytdlcmd.getMp4Cmd(downloadable.getFileName());
 		}
 
 		executeCommand(command);
@@ -47,6 +52,8 @@ public class YytdlwebService implements IYtdlwebService {
 	}
 
 	private String executeCommand(String command) {
+
+		log.info(String.format("Running command %s", command));
 
 		StringBuffer output = new StringBuffer();
 

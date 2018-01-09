@@ -2,31 +2,41 @@ package ytdlweb.model;
 
 public class YoutubeDLcmd {
 
-	private static final String PGM = "youtube-dl";
+	private static final String PGM = "youtube-dl ";
 
-	public enum MacroOperation {
-		GET_FILE_NAME,
-		GET_MP3,
-		GET_MP4
-	}
-	private boolean ignoreErrors;
-	private boolean restrictFilenames;
-	private boolean getFileName;
-	private String output;
 	private String url;
-	private boolean audioFormat;
-	private boolean recodeVideo;
+	private String fileName;
 
-	YoutubeDLcmd (String output, String url, MacroOperation macroOperation) {
-		this.output = output;
-		this.url = url;
+	public YoutubeDLcmd(String url) {
+		this.url = " " + url;
 	}
 
-	@Override
-	public String toString() {
+	public String getFileNameCmd() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(PGM);
-		stringBuilder.append(" ");
+		stringBuilder.append("--restrict-filenames --get-filename -o /tmp/%(title)s-%(id)s");
+		stringBuilder.append(url);
+
+		return stringBuilder.toString();
+	}
+
+	public String getMp3Cmd(String fileName) {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(PGM);
+		stringBuilder.append("--ignore-errors -x --audio-format mp3 -o ");
+		stringBuilder.append(fileName);
+		stringBuilder.append(url);
+
+		return stringBuilder.toString();
+	}
+
+	public String getMp4Cmd(String fileName) {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(PGM);
+		stringBuilder.append("--ignore-errors --recode-video mp4 -o ");
+		stringBuilder.append(fileName);
+		stringBuilder.append(url);
+
 		return stringBuilder.toString();
 	}
 }
