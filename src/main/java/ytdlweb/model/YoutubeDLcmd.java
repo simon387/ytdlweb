@@ -2,31 +2,33 @@ package ytdlweb.model;
 
 public class YoutubeDLcmd {
 
-	private static final String PGM = "youtube-dl";
+	private static final String PGM = "youtube-dl ";
 
-	public enum MacroOperation {
-		GET_FILE_NAME,
-		GET_MP3,
-		GET_MP4
-	}
-	private boolean ignoreErrors;
-	private boolean restrictFilenames;
-	private boolean getFileName;
-	private String output;
 	private String url;
-	private boolean audioFormat;
-	private boolean recodeVideo;
 
-	YoutubeDLcmd (String output, String url, MacroOperation macroOperation) {
-		this.output = output;
-		this.url = url;
+	public YoutubeDLcmd(String url) {
+		this.url = " " + url;
 	}
 
-	@Override
-	public String toString() {
+	public String getFileNameCmd() {
+		return getHelper("--restrict-filenames --get-filename -o /tmp/%(title)s-%(id)s", "");
+	}
+
+	public String getMp3Cmd(String fileName) {
+		return getHelper("--ignore-errors -x --audio-format mp3 -o ", fileName);
+	}
+
+	public String getMp4Cmd(String fileName) {
+		return getHelper("--ignore-errors --recode-video mp4 -o ", fileName);
+	}
+
+	private String getHelper(String cmd, String fileName) {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(PGM);
-		stringBuilder.append(" ");
+		stringBuilder.append(cmd);
+		stringBuilder.append(fileName);
+		stringBuilder.append(url);
+
 		return stringBuilder.toString();
 	}
 }
