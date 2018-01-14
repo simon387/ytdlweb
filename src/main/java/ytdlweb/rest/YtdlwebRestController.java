@@ -37,6 +37,8 @@ public class YtdlwebRestController {
 			@RequestBody @Valid @NotNull(message = ValidationValue.YOUTUBEREQUESTTYPE) YoutubeRequestType youtubeRequestType,
 			BindingResult bindingResult) {
 
+		log.info("Inizio richiesta");
+
 		Downloadable downloadable = ytdlwebService.download(youtubeRequestType);
 
 		HttpHeaders headers = new HttpHeaders();
@@ -45,7 +47,8 @@ public class YtdlwebRestController {
 		headers.setCacheControl(HEADER_CACHE_CONTROL);
 		ResponseEntity<byte[]> response = new ResponseEntity<>(downloadable.getContents(), headers, HttpStatus.OK);
 
-		return response;
+		log.info("Fine richiesta");
 
+		return response;
 	}
 }
