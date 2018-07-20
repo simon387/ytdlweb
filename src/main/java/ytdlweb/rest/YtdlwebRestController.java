@@ -45,10 +45,10 @@ public class YtdlwebRestController {
 		headers.setContentType(MediaType.parseMediaType(downloadable.getContentType()));
 		headers.setContentDispositionFormData(downloadable.getFileName(), downloadable.getFileName());
 		headers.setCacheControl(HEADER_CACHE_CONTROL);
-		ResponseEntity<byte[]> response = new ResponseEntity<>(downloadable.getContents(), headers, HttpStatus.OK);
+		ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(downloadable.getContents(), headers, HttpStatus.OK);
 
 		log.info("Fine richiesta");
 
-		return response;
+		return responseEntity;
 	}
 }
