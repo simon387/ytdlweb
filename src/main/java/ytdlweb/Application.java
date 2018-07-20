@@ -10,3 +10,10 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 }
+
+/*
+
+curl --header "Content-Type: application/json" --request POST --data '{"url": "https://www.youtube.com/watch?v=4V90AmXnguw","type": "mp3"}' --output "asd.mp3" http://localhost:8080/ytdl
+
+
+ */
